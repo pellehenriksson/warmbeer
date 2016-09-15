@@ -76,8 +76,9 @@
     <Compile Include="Infrastructure\Persistence\Config\StoreItemConfig.cs" />
     <Compile Include="Infrastructure\Persistence\WarmBeerDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\Items\ItemQuery.cs" />
     <Compile Include="Queries\Items\ItemsListQuery.cs" />
-    <Compile Include="Queries\Items\ItemsModel.cs" />
+    <Compile Include="Queries\Items\ItemModel.cs" />
     <Compile Include="Queries\PagedParameters.cs" />
     <Compile Include="Queries\PagedResult.cs" />
     <Compile Include="Queries\PageInfo.cs" />

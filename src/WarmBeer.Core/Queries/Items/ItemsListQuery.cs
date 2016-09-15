@@ -24,7 +24,7 @@ namespace WarmBeer.Core.Queries.Items
                 .OrderBy(x => x.Number)
                 .Skip((message.Page - 1) * message.Size)
                 .Take(message.Size)
-                .Select(x => new ItemsModel
+                .Select(x => new ItemModel
                     {
                         Id = x.Id,
                         Name = x.Name
@@ -40,9 +40,9 @@ namespace WarmBeer.Core.Queries.Items
         {
         }
         
-        public class Result : PagedResult<ItemsModel>
+        public class Result : PagedResult<ItemModel>
         {
-            public Result(PagedParameters parameters, int totalCount, List<ItemsModel> items) : base(parameters, totalCount, items)
+            public Result(PagedParameters parameters, int totalCount, List<ItemModel> items) : base(parameters, totalCount, items)
             {
             }
         }

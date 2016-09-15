@@ -21,8 +21,22 @@ namespace WarmBeer.Web.Controllers
         [Route("")]
         public async Task<IHttpActionResult> Get([FromUri] PagingModel paging)
         {
-            var critera = new ItemsListQuery.Parameters { Page = paging.Page, Size = paging.Size };
-            var result = await this.mediator.SendAsync(critera);
+            var parameters = new ItemsListQuery.Parameters { Page = paging.Page, Size = paging.Size };
+            var result = await this.mediator.SendAsync(parameters);
+
+            return this.Ok(result);
+        }
+
+        [Route("id/{id:int}")]
+        public async Task<IHttpActionResult> Get(int id)
+        {
+            var parameters = new ItemQuery.Parameters(id);
+            var result = await mediator.SendAsync(parameters);
+
+            if (result == null)
+            {
+                return this.NotFound();
+            }
 
             return this.Ok(result);
         }

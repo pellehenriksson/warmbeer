@@ -1,4 +1,7 @@
-﻿using System.Web.Http;
+﻿using System.Net.Http.Formatting;
+using System.Web.Http;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Serialization;
 
 namespace WarmBeer.Web
 {
@@ -6,10 +9,15 @@ namespace WarmBeer.Web
     {
         public static void Register(HttpConfiguration config)
         {
-            // Web API configuration and services
-
-            // Web API routes
             config.MapHttpAttributeRoutes();
+
+            config.Formatters.Clear();
+            config.Formatters.Add(new JsonMediaTypeFormatter());
+
+            var jsonFormatter = config.Formatters.JsonFormatter;
+            var settings = jsonFormatter.SerializerSettings;
+            settings.Converters.Add(new IsoDateTimeConverter());
+            settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
         }
     }
 }
