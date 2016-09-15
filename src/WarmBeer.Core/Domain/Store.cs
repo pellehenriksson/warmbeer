@@ -9,7 +9,12 @@ namespace WarmBeer.Core.Domain
 
         public string Name { get; set; }
 
+        public Address Address { get; set; }
+
+        public Phone Phone { get; set; }
+
         public DbGeography Location { get; set; }
+        
 
         public virtual ICollection<StoreItem> Items { get; set; }
     }

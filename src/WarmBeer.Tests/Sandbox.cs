@@ -1,5 +1,5 @@
 ﻿using System.Data.Entity;
-using System.Linq;
+using WarmBeer.Core.Import;
 using WarmBeer.Core.Infrastructure.Persistence;
 using Xunit;
 
@@ -17,7 +17,8 @@ namespace WarmBeer.Tests
         {
             using (var db = new WarmBeerDbContext())
             {
-                var x = db.Items.ToList();
+                var storeLoader = new StoreLoader(db, @"C:\@github\warmbeer\data");
+                storeLoader.Run();
             }
         }
     }

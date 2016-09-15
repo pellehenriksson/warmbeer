@@ -38,6 +38,9 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MightyLittleGeodesy">
+      <HintPath>..\..\lib\mightylittlegeodesy-dotnet2\MightyLittleGeodesy.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -52,12 +55,17 @@
     <Compile Include="..\Shared\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Domain\Address.cs" />
     <Compile Include="Domain\Category.cs" />
     <Compile Include="Domain\Item.cs" />
+    <Compile Include="Domain\Phone.cs" />
     <Compile Include="Domain\Store.cs" />
     <Compile Include="Domain\StoreItem.cs" />
+    <Compile Include="Import\StoreLoader.cs" />
+    <Compile Include="Infrastructure\Persistence\Config\AddressConfiguration.cs" />
     <Compile Include="Infrastructure\Persistence\Config\CategoryConfig.cs" />
     <Compile Include="Infrastructure\Persistence\Config\ItemConfig.cs" />
+    <Compile Include="Infrastructure\Persistence\Config\PhoneConfiguration.cs" />
     <Compile Include="Infrastructure\Persistence\Config\StoreConfig.cs" />
     <Compile Include="Infrastructure\Persistence\Config\StoreItemConfig.cs" />
     <Compile Include="Infrastructure\Persistence\WarmBeerDbContext.cs" />
