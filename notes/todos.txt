@@ -1,15 +1,9 @@
-01. model
-02. db
-03. spit db-files
 ---------------------------------------------
-
 collection + json
-swashbuckle
+swashbuckle / [swaggerresponse]
 
 --------------------------------------------
-
 client
-
 -------------------------------------------
 EF - Spatial queries
 Serilog

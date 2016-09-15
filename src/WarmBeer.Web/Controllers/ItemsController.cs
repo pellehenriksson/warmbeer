@@ -8,11 +8,11 @@ using WarmBeer.Web.Models;
 namespace WarmBeer.Web.Controllers
 {
     [RoutePrefix("api/items")]
-    public class IndexController : ApiController
+    public class ItemsController : ApiController
     {
         private readonly IMediator mediator;
 
-        public IndexController(IMediator mediator)
+        public ItemsController(IMediator mediator)
         {
             this.mediator = mediator;
         }
