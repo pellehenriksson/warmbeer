@@ -26,3 +26,12 @@ sthlm central
 --------------------
 18.05816
 59.33014
+
+
+https://github.com/tombatossals/angular-openlayers-directive (bower) ??
+
+https://github.com/johnpapa/angular-styleguide
+
+
+
+http://maps.googleapis.com/maps/api/geocode/json?latlng=56.90410,14.83115&sensor=true

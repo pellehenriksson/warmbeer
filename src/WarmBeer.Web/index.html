@@ -3,49 +3,60 @@
 <head>
     <title>Warm Beer</title>
     <meta charset="utf-8"/>
-    
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-
     <link rel="stylesheet" href="content/normalize.css">
     <link rel="stylesheet" href="content/skeleton.css">
-
 </head>
-<body>
-    <div class="container">
+<body >
+    <div class="container" ng-app="app" ng-controller="MainController as vm">
         <div class="row">
             <h1>Warm Beer</h1>
             <hr/>
         </div>
         <div class="row">
             <div class="six columns">
-                <input class="u-full-width" type="text" placeholder="city" id="city">
+                <input class="u-full-width" type="text" ng-model="vm.currentLocationName">
             </div>
             <div class="four columns">
-                <select class="u-full-width" id="settings">
-                    <option value="Option 1">Lowest price</option>
-                    <option value="Option 2">Heighest alchol</option>
+                <select class="u-full-width">
+                    <option value="Option 1">Price</option>
+                    <option value="Option 2">Strength</option>
                 </select>
             </div>
             <div class="two columns">
-                <input class="button-primary" type="submit" value="Submit">
+                <input class="button-primary" type="submit" value="Go!">
             </div>
         </div>
 
         <div class="row">
-            <div class="eight columns">
+            <div class="six columns">
                 // map
+                <table class="u-full-width">
+                    <tr ng-repeat="s in vm.stores">
+                        <td>{{s.address}}</td>
+                        <td>{{s.city}}</td>
+                        <td>{{s.distance | number:0}}</td>
+                    </tr>
+                </table>
             </div>
-            <div class="four columns">
+            <div class="six columns">
                 // suggestions
+                <table class="u-full-width">
+                    <tr ng-repeat="i in vm.items">
+                        <td>{{i.name}}</td>
+                        <td>{{i.price | currency : ""}}</td>
+                        <td>{{i.pricePerLitre | currency : ""}}</td>
+                        <td>{{i.alcoholByVolume}} %</td>
+                    </tr>
+                </table>
             </div>
         </div>
-
     </div>
 
     <script src="Scripts/jquery-3.1.0.js"></script>
     <script src="Scripts/angular.js"></script>
-
+    <script src="Scripts/app/app.module.js"></script>
+    <script src="Scripts/app/main.controller.js"></script>
 </body>
 </html>
