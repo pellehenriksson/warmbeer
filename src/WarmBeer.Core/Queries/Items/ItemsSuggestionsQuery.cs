@@ -25,6 +25,7 @@ namespace WarmBeer.Core.Queries.Items
 
             var stores = await this.db.Stores.Where(x => x.Location.Distance(location) < message.Radius)
                 .OrderBy(x => x.Location.Distance(location))
+                .Take(5)
                 .Select(x => new Result.Store
                     {
                         Id = x.Id,
@@ -50,13 +51,15 @@ namespace WarmBeer.Core.Queries.Items
 
             var items = await itemsQuery
                             .Take(10)
-                                .Select(x => new Result.Item
+                                .Select(x => new ItemModel
                                 {
                                     Id = x.Item.Id,
                                     Name = x.Item.Name,
                                     Price = x.Item.Price,
                                     PricePerLitre = x.Item.PricePerLitre,
-                                    Alcohol = x.Item.AlcoholByVolume
+                                    AlcoholByVolume = x.Item.AlcoholByVolume,
+                                    IsKoscher = x.Item.IsKoscher,
+                                    IsOrganic = x.Item.IsOrganic
                                 })
                             .ToListAsync();
 
@@ -79,7 +82,7 @@ namespace WarmBeer.Core.Queries.Items
         {
             public List<Store> Stores { get; set; }
 
-            public List<Item> Items { get; set; }
+            public List<ItemModel> Items { get; set; }
 
             public class Store
             {
@@ -93,19 +96,6 @@ namespace WarmBeer.Core.Queries.Items
 
                 // meter
                 public double? Distance { get; set; }
-            }
-            
-            public class Item
-            {
-                public int Id { get; set; }
-
-                public string Name { get; set; }
-
-                public decimal Price { get; set; }
-
-                public decimal PricePerLitre { get; set; }
-
-                public decimal Alcohol { get; set; }
             }
         }
     }
