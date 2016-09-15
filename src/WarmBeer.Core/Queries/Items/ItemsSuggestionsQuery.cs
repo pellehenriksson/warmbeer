@@ -36,13 +36,12 @@ namespace WarmBeer.Core.Queries.Items
                 .ToListAsync();
 
             var storeIds = stores.Select(x => x.Id).ToList();
-
-
-            var itemsQuery =  this.db.StoreItems
-                                    .Where(x => storeIds.Contains(x.Store.Id));
+            
+            var itemsQuery = this.db.StoreItems.Where(x => storeIds.Contains(x.Store.Id));
 
             if (message.HighestAlcohol)
-            {                itemsQuery = itemsQuery.OrderByDescending(x => x.Item.AlcoholByVolume);
+            {
+                itemsQuery = itemsQuery.OrderByDescending(x => x.Item.AlcoholByVolume);
             }
             else
             {

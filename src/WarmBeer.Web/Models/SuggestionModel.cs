@@ -4,7 +4,6 @@ namespace WarmBeer.Web.Models
 {
     public class SuggestionModel
     {
-
         public SuggestionModel()
         {
             this.Radius = 10000;

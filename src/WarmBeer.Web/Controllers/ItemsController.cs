@@ -46,7 +46,7 @@ namespace WarmBeer.Web.Controllers
         {
             var parameters = new ItemsSuggestionsQuery.Parameters
             {
-                Longitude =  model.Longitude,
+                Longitude = model.Longitude,
                 Latitude = model.Latitude,
                 Radius = model.Radius,
                 HighestAlcohol = model.HighestAlcohol,
