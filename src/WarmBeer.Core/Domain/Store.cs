@@ -16,7 +16,6 @@ namespace WarmBeer.Core.Domain
         public Phone Phone { get; set; }
 
         public DbGeography Location { get; set; }
-        
 
         public virtual ICollection<StoreItem> Items { get; set; }
     }

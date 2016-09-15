@@ -1,5 +1,6 @@
 01. model
-02. load data into db => dat.file
+02. db
+03. spit db-files
 ---------------------------------------------
 
 collection + json
@@ -8,3 +9,16 @@ swashbuckle
 --------------------------------------------
 
 client
+
+-------------------------------------------
+EF - Spatial queries
+Serilog
+?Dapper
+?Swaschbuckle
+?Collection+json
+mediatr
+automapper (projections)
+
+angular m tests
+open-layers
+

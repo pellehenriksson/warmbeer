@@ -2,4 +2,3 @@
 
 [assembly: AssemblyTitle("WarmBeer.Web")]
 [assembly: AssemblyDescription("")]
-

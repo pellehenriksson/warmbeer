@@ -17,7 +17,7 @@ namespace WarmBeer.Tests
             }
         }
 
-        [Fact]
+        [Fact(Skip = "For baseload only")]
         public void Run()
         {
             using (var db = new WarmBeerDbContext())
@@ -27,6 +27,9 @@ namespace WarmBeer.Tests
 
                 var itemLoader = new ItemLoader(db, @"C:\@github\warmbeer\data");
                 itemLoader.Run();
+
+                var storeItemLoader = new StoreItemLoader(db, @"C:\@github\warmbeer\data");
+                storeItemLoader.Run();
             }
         }
     }
