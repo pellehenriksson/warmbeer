@@ -85,6 +85,7 @@
     <Compile Include="Queries\Items\ItemModel.cs" />
     <Compile Include="Queries\Items\ItemsSuggestionsQuery.cs" />
     <Compile Include="Queries\Location\LocationNameQuery.cs" />
+    <Compile Include="Queries\Location\LocationResponse.cs" />
     <Compile Include="Queries\PagedParameters.cs" />
     <Compile Include="Queries\PagedResult.cs" />
     <Compile Include="Queries\PageInfo.cs" />

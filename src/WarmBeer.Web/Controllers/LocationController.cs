@@ -5,7 +5,7 @@ using WarmBeer.Core.Queries.Location;
 
 namespace WarmBeer.Web.Controllers
 {
-    [RoutePrefix("location")]
+    [RoutePrefix("api/location")]
     public class LocationController : ApiController
     {
         private readonly IMediator mediator;
@@ -15,7 +15,7 @@ namespace WarmBeer.Web.Controllers
             this.mediator = mediator;
         }
 
-        [Route("findname")]
+        [Route("name")]
         public async Task<IHttpActionResult> Get(decimal longitude, decimal latitude)
         {
             var parameters = new LocationNameQuery.Parameters(longitude, latitude);

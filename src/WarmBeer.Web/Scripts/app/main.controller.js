@@ -26,14 +26,23 @@
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function (position) {
                     vm.currentLocation = position.coords;
+
                     getSuggestions();
+                    getLocationName();
+
                     // $scope.$apply();
                 });
             }
         }
 
-        function getSuggestions() {
+        function getLocationName() {
+            $http.get("/api/location/name?longitude=" + vm.currentLocation.longitude + "&latitude=" + vm.currentLocation.latitude)
+                .then(function (response) {
+                    vm.currentLocationName = response.data.name;
+                });
+        }
 
+        function getSuggestions() {
             $http.get("/api/items/suggestions?longitude=" + vm.currentLocation.longitude + "&latitude=" + vm.currentLocation.latitude)
                 .then(function(response) {
                     vm.stores = response.data.stores;
