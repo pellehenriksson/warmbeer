@@ -79,6 +79,7 @@
     <Compile Include="Queries\Items\ItemQuery.cs" />
     <Compile Include="Queries\Items\ItemsListQuery.cs" />
     <Compile Include="Queries\Items\ItemModel.cs" />
+    <Compile Include="Queries\Items\ItemsSuggestionsQuery.cs" />
     <Compile Include="Queries\PagedParameters.cs" />
     <Compile Include="Queries\PagedResult.cs" />
     <Compile Include="Queries\PageInfo.cs" />

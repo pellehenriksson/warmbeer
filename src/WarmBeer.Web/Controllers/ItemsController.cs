@@ -31,13 +31,28 @@ namespace WarmBeer.Web.Controllers
         public async Task<IHttpActionResult> Get(int id)
         {
             var parameters = new ItemQuery.Parameters(id);
-            var result = await mediator.SendAsync(parameters);
+            var result = await this.mediator.SendAsync(parameters);
 
             if (result == null)
             {
                 return this.NotFound();
             }
 
+            return this.Ok(result);
+        }
+
+        [Route("suggestions")]
+        public async Task<IHttpActionResult> GetSuggestions([FromUri]SuggestionModel model)
+        {
+            var parameters = new ItemsSuggestionsQuery.Parameters
+            {
+                Longitude =  model.Longitude,
+                Latitude = model.Latitude,
+                Radius = model.Radius,
+                HighestAlcohol = model.HighestAlcohol,
+            };
+
+            var result = await this.mediator.SendAsync(parameters);
             return this.Ok(result);
         }
     }

@@ -16,3 +16,13 @@ automapper (projections)
 angular m tests
 open-layers
 
+
+-------------------
+bluegarden
+long: 14.83115
+lat:  56.90410
+
+sthlm central
+--------------------
+18.05816
+59.33014
