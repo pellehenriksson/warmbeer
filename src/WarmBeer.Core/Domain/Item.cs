@@ -21,9 +21,7 @@ namespace WarmBeer.Core.Domain
         public bool IsKoscher { get; set; }
 
         public bool IsOrganic { get; set; }
-
-        public Category Category { get; set; }
-
+        
         public virtual ICollection<StoreItem> Stores { get; set; }
     }
 }

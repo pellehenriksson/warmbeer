@@ -10,8 +10,6 @@ namespace WarmBeer.Core.Infrastructure.Persistence
         {
         }
 
-        public DbSet<Category> Categories { get; set; }
-
         public DbSet<Item> Items { get; set; }
 
         public DbSet<Store> Stores { get; set; }

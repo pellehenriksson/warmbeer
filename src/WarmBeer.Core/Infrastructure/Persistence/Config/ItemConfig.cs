@@ -24,8 +24,6 @@ namespace WarmBeer.Core.Infrastructure.Persistence.Config
             this.Property(x => x.PricePerLitre);
             this.Property(x => x.AlcoholByVolume);
 
-            this.HasRequired(x => x.Category);
-
             this.HasMany(x => x.Stores);
         }
     }

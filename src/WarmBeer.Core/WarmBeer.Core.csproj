@@ -56,14 +56,13 @@
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Domain\Address.cs" />
-    <Compile Include="Domain\Category.cs" />
     <Compile Include="Domain\Item.cs" />
     <Compile Include="Domain\Phone.cs" />
     <Compile Include="Domain\Store.cs" />
     <Compile Include="Domain\StoreItem.cs" />
+    <Compile Include="Import\ItemLoader.cs" />
     <Compile Include="Import\StoreLoader.cs" />
     <Compile Include="Infrastructure\Persistence\Config\AddressConfiguration.cs" />
-    <Compile Include="Infrastructure\Persistence\Config\CategoryConfig.cs" />
     <Compile Include="Infrastructure\Persistence\Config\ItemConfig.cs" />
     <Compile Include="Infrastructure\Persistence\Config\PhoneConfiguration.cs" />
     <Compile Include="Infrastructure\Persistence\Config\StoreConfig.cs" />

@@ -7,6 +7,8 @@ namespace WarmBeer.Core.Domain
     {
         public int Id { get; private set; }
 
+        public string Number { get; set; }
+
         public string Name { get; set; }
 
         public Address Address { get; set; }

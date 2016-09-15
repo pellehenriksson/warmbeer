@@ -27,7 +27,7 @@ namespace WarmBeer.Core.Import
             var data = File.ReadAllText(path);
             var doc = XDocument.Load(new StringReader(data));
 
-            foreach (XElement s in doc.Root.Elements("ButikOmbud"))
+            foreach (var s in doc.Root.Elements("ButikOmbud"))
             {
                 var type = s.Element("Typ").Value.Trim();
 
@@ -36,6 +36,7 @@ namespace WarmBeer.Core.Import
                     this.db.Stores.Add(new Store
                     {
                         Name = s.Element("Namn").Value,
+                        Number = s.Element("Nr").Value,
                         Phone = this.ResolvePhone(s.Element("Telefon")),
                         Address = new Address
                         {
@@ -54,7 +55,7 @@ namespace WarmBeer.Core.Import
 
         private Phone ResolvePhone(XElement element)
         {
-            if (element == null || string.IsNullOrWhiteSpace(element.Value))
+            if (string.IsNullOrWhiteSpace(element?.Value))
             {
                 return new Phone();
             }

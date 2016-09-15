@@ -10,6 +10,11 @@ namespace WarmBeer.Tests
         public Sandbox()
         {
             Database.SetInitializer(new DropCreateDatabaseIfModelChanges<WarmBeerDbContext>());
+
+            using (var db = new WarmBeerDbContext())
+            {
+                db.Database.ExecuteSqlCommand("delete from StoreItems; delete from Stores; delete from Items");
+            }
         }
 
         [Fact]
@@ -19,6 +24,9 @@ namespace WarmBeer.Tests
             {
                 var storeLoader = new StoreLoader(db, @"C:\@github\warmbeer\data");
                 storeLoader.Run();
+
+                var itemLoader = new ItemLoader(db, @"C:\@github\warmbeer\data");
+                itemLoader.Run();
             }
         }
     }

@@ -10,7 +10,9 @@ namespace WarmBeer.Core.Infrastructure.Persistence.Config
         {
             this.HasKey(x => x.Id);
             this.Property(x => x.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            
+
+            this.Property(x => x.Number);
+
             this.Property(x => x.Name).HasMaxLength(50);
 
             this.Property(x => x.Address.Street);
@@ -26,6 +28,7 @@ namespace WarmBeer.Core.Infrastructure.Persistence.Config
             this.Property(x => x.Phone.Number);
 
             this.Property(x => x.Location);
+
             this.HasMany(x => x.Items);
         }
     }
