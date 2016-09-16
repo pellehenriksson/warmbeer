@@ -6,6 +6,7 @@ using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
+using WarmBeer.Core.Domain;
 using WarmBeer.Core.Infrastructure.Persistence;
 
 namespace WarmBeer.Core.Queries.Items
@@ -48,7 +49,8 @@ namespace WarmBeer.Core.Queries.Items
 
             if (message.HighestAlcohol)
             {
-                itemsQuery = itemsQuery.OrderByDescending(x => x.Item.AlcoholByVolume);
+                itemsQuery = itemsQuery
+                    .OrderByDescending(x => x.Item.AlcoholByVolume);
             }
             else
             {
@@ -66,7 +68,8 @@ namespace WarmBeer.Core.Queries.Items
                                     PricePerLitre = x.Item.PricePerLitre,
                                     AlcoholByVolume = x.Item.AlcoholByVolume,
                                     IsKoscher = x.Item.IsKoscher,
-                                    IsOrganic = x.Item.IsOrganic
+                                    IsOrganic = x.Item.IsOrganic,
+                                    Address = x.Store.Address.Street
                                 })
                         .ToListAsync();
 

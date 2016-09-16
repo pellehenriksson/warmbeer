@@ -19,5 +19,7 @@
         public bool IsKoscher { get; set; }
 
         public bool IsOrganic { get; set; }
+
+        public string Address { get; set; }
     }
 }

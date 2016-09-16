@@ -71,9 +71,7 @@
         }
 
         function getSuggestions() {
-
-            console.log("ran!");
-
+            
             var alcohol = vm.selectedSetting.id === 2;
 
             $http.get("/api/items/suggestions?longitude=" + vm.currentLocation.longitude + "&latitude=" + vm.currentLocation.latitude + "&highestAlcohol=" + alcohol)
