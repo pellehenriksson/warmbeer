@@ -65,7 +65,7 @@ namespace WarmBeer.Core.Queries.Items
                             .Select(x => new ItemModel
                                 {
                                     Id = x.Item.Id,
-                                    ItemNumber = x.Item.ItemNumber,
+                                    Number = x.Item.Number,
                                     Name = x.Item.Name,
                                     Price = x.Item.Price,
                                     PricePerLitre = x.Item.PricePerLitre,

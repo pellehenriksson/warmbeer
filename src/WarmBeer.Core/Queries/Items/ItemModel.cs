@@ -4,7 +4,7 @@
     {
         public int Id { get; set; }
 
-        public string ItemNumber { get; set; }
+        public string Number { get; set; }
 
         public string Name { get; set; }
 
@@ -21,5 +21,7 @@
         public bool IsOrganic { get; set; }
 
         public string Address { get; set; }
+
+        public string Url => $"http://www.systembolaget.se/sok-dryck?searchquery={this.Number}";
     }
 }

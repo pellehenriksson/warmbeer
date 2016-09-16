@@ -38,7 +38,7 @@
             <table class="u-full-width">
                 <tr ng-repeat="i in vm.items">
                     <td>
-                        {{i.name}}
+                        <a ng-href="{{i.url}}" target="_blank">{{i.name}}</a>
                         <br/>
                         {{i.address}}
                     </td>
