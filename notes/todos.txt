@@ -35,3 +35,9 @@ https://github.com/johnpapa/angular-styleguide
 
 
 http://maps.googleapis.com/maps/api/geocode/json?latlng=56.90410,14.83115&sensor=true
+
+
+load images with a proxy service, store the image and reuse it for next requests
+
+itemNumber !!
+http://static.systembolaget.se/imagelibrary/publishedmedia/ph2255i3v8j29mt4lqn2/190837.jpg

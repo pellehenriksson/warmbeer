@@ -41,9 +41,11 @@
                 </table>
             </div>
             <div class="six columns">
-                // suggestions
                 <table class="u-full-width">
                     <tr ng-repeat="i in vm.items">
+                        <td>
+                            <img ng-src="{{i.imageUrl}}" alt="{{i.itemNumber}}" />
+                        </td>
                         <td>{{i.name}}</td>
                         <td>{{i.price | currency : ""}}</td>
                         <td>{{i.pricePerLitre | currency : ""}}</td>

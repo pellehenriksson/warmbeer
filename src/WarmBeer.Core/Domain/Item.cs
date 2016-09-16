@@ -8,6 +8,8 @@ namespace WarmBeer.Core.Domain
 
         public string Number { get; set; } // public number
 
+        public string ItemNumber { get; set; }
+
         public string Name { get; set; }
 
         public decimal Volume { get; set; }

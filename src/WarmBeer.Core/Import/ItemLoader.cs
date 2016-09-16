@@ -41,6 +41,7 @@ namespace WarmBeer.Core.Import
                 var product = new Item
                 {
                     Number = s.Element("nr").Value,
+                    ItemNumber = s.Element("Artikelid").Value,
                     Name = this.ResolveName(s),
                     Price = this.ParseDecimal(s.Element("Prisinklmoms")),
                     Volume = this.ParseDecimal(s.Element("Volymiml")),

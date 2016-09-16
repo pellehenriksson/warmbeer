@@ -17,7 +17,7 @@ namespace WarmBeer.Tests
             }
         }
 
-        [Fact(Skip = "For baseload only")]
+        [Fact]
         public void Run()
         {
             using (var db = new WarmBeerDbContext())

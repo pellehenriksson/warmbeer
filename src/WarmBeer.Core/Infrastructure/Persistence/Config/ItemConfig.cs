@@ -15,6 +15,10 @@ namespace WarmBeer.Core.Infrastructure.Persistence.Config
                 .HasMaxLength(10)
                 .IsRequired();
 
+            this.Property(x => x.ItemNumber)
+                 .HasMaxLength(10)
+                 .IsRequired();
+
             this.Property(x => x.Name)
              .HasMaxLength(200)
              .IsRequired();

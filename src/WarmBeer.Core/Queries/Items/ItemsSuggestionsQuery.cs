@@ -51,17 +51,18 @@ namespace WarmBeer.Core.Queries.Items
 
             var items = await itemsQuery
                             .Take(10)
-                                .Select(x => new ItemModel
-                                {
-                                    Id = x.Item.Id,
-                                    Name = x.Item.Name,
-                                    Price = x.Item.Price,
-                                    PricePerLitre = x.Item.PricePerLitre,
-                                    AlcoholByVolume = x.Item.AlcoholByVolume,
-                                    IsKoscher = x.Item.IsKoscher,
-                                    IsOrganic = x.Item.IsOrganic
-                                })
-                            .ToListAsync();
+                            .Select(x => new ItemModel
+                            {
+                                Id = x.Item.Id,
+                                ItemNumber = x.Item.ItemNumber,
+                                Name = x.Item.Name,
+                                Price = x.Item.Price,
+                                PricePerLitre = x.Item.PricePerLitre,
+                                AlcoholByVolume = x.Item.AlcoholByVolume,
+                                IsKoscher = x.Item.IsKoscher,
+                                IsOrganic = x.Item.IsOrganic
+                            })
+                        .ToListAsync();
 
             return new Result { Stores = stores, Items = items };
         }
