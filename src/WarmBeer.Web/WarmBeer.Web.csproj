@@ -113,6 +113,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bower_components\angular-openlayers-directive\css\markers.css" />
+    <Content Include="bower_components\angular-openlayers-directive\css\openlayers.css" />
+    <Content Include="bower_components\angular-openlayers-directive\dist\angular-openlayers-directive.css" />
+    <Content Include="bower_components\angular-openlayers-directive\dist\angular-openlayers-directive.js" />
+    <Content Include="bower_components\angular-openlayers-directive\dist\angular-openlayers-directive.min.js" />
+    <Content Include="bower_components\angular-openlayers-directive\dist\angular-openlayers-directive.min.no-header.js" />
+    <Content Include="bower_components\angular-openlayers-directive\dist\angular-openlayers-directive.pre.js" />
+    <Content Include="bower_components\angular-sanitize\angular-sanitize.js" />
+    <Content Include="bower_components\angular-sanitize\angular-sanitize.min.js" />
+    <Content Include="bower_components\angular-sanitize\index.js" />
+    <Content Include="bower_components\angular\angular-csp.css" />
+    <Content Include="bower_components\angular\angular.js" />
+    <Content Include="bower_components\angular\angular.min.js" />
+    <Content Include="bower_components\angular\index.js" />
+    <Content Include="bower_components\openlayers\ol-debug.js" />
+    <Content Include="bower_components\openlayers\ol.css" />
+    <Content Include="bower_components\openlayers\ol.js" />
     <Content Include="Content\Images\Map-Marker-Ball-Azure.png" />
     <Content Include="Content\Images\Map-Marker-Ball-Pink.png" />
     <Content Include="Content\normalize.css" />
@@ -121,6 +138,21 @@
     <Content Include="index.html" />
     <Content Include="Scripts\app\app.module.js" />
     <Content Include="bower.json" />
+    <Content Include="bower_components\angular-openlayers-directive\.bower.json" />
+    <Content Include="bower_components\angular-openlayers-directive\bower.json" />
+    <Content Include="bower_components\angular-openlayers-directive\LICENSE" />
+    <Content Include="bower_components\angular-sanitize\.bower.json" />
+    <Content Include="bower_components\angular-sanitize\angular-sanitize.min.js.map" />
+    <Content Include="bower_components\angular-sanitize\bower.json" />
+    <Content Include="bower_components\angular-sanitize\package.json" />
+    <Content Include="bower_components\angular-sanitize\README.md" />
+    <Content Include="bower_components\angular\.bower.json" />
+    <Content Include="bower_components\angular\angular.min.js.gzip" />
+    <Content Include="bower_components\angular\angular.min.js.map" />
+    <Content Include="bower_components\angular\bower.json" />
+    <Content Include="bower_components\angular\package.json" />
+    <Content Include="bower_components\angular\README.md" />
+    <Content Include="bower_components\openlayers\.bower.json" />
     <None Include="Properties\PublishProfiles\warmbeer - Web Deploy.pubxml" />
     <Content Include="Scripts\app\main.controller.js" />
     <Content Include="Web.config" />
