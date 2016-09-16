@@ -48,7 +48,7 @@
                 <tr ng-repeat="i in vm.items">
                     <td>{{i.name}}</td>
                     <td>{{i.price | currency : ""}}</td>
-                    <td>{{i.alcoholByVolume}}</td>
+                    <td>{{i.alcoholByVolume | number : 1 }}</td>
                 </tr>
             </table>
         </div>

@@ -41,7 +41,10 @@ namespace WarmBeer.Core.Queries.Items
 
             var storeIds = stores.Select(x => x.Id).ToList();
             
-            var itemsQuery = this.db.StoreItems.Where(x => storeIds.Contains(x.Store.Id));
+            var itemsQuery = this.db.StoreItems
+                                .Where(x => storeIds.Contains(x.Store.Id))
+                                .GroupBy(x => x.Item.Id)
+                                .Select(grp => grp.FirstOrDefault());
 
             if (message.HighestAlcohol)
             {
@@ -55,16 +58,16 @@ namespace WarmBeer.Core.Queries.Items
             var items = await itemsQuery
                             .Take(10)
                             .Select(x => new ItemModel
-                            {
-                                Id = x.Item.Id,
-                                ItemNumber = x.Item.ItemNumber,
-                                Name = x.Item.Name,
-                                Price = x.Item.Price,
-                                PricePerLitre = x.Item.PricePerLitre,
-                                AlcoholByVolume = x.Item.AlcoholByVolume,
-                                IsKoscher = x.Item.IsKoscher,
-                                IsOrganic = x.Item.IsOrganic
-                            })
+                                {
+                                    Id = x.Item.Id,
+                                    ItemNumber = x.Item.ItemNumber,
+                                    Name = x.Item.Name,
+                                    Price = x.Item.Price,
+                                    PricePerLitre = x.Item.PricePerLitre,
+                                    AlcoholByVolume = x.Item.AlcoholByVolume,
+                                    IsKoscher = x.Item.IsKoscher,
+                                    IsOrganic = x.Item.IsOrganic
+                                })
                         .ToListAsync();
 
             return new Result { Stores = stores, Items = items };
@@ -76,7 +79,6 @@ namespace WarmBeer.Core.Queries.Items
 
             public decimal Latitude { get; set; }
 
-            // meter
             public int Radius { get; set; }
 
             public bool HighestAlcohol { get; set; }
@@ -102,7 +104,6 @@ namespace WarmBeer.Core.Queries.Items
 
                 public double? Longitude { get; set; }
 
-                // meter
                 public double? Distance { get; set; }
 
                 public string Info
