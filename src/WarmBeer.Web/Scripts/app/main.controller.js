@@ -16,8 +16,8 @@
         vm.items = [];
         vm.places = [];
         vm.center = {
-            lat: 56.90410,
-            lon: 14.83115,
+            lat: 0,
+            lon: 0,
             zoom: 12,
             projection: "EPSG:4326"
         };
@@ -45,8 +45,6 @@
                     getLocationName();
                     centerMapOnLocation();
                 });
-            } else {
-                
             }
         }
 
@@ -59,6 +57,7 @@
         }
 
         function centerMapOnLocation() {
+
             vm.center.lat = vm.currentLocation.latitude;
             vm.center.lon = vm.currentLocation.longitude;
         }
