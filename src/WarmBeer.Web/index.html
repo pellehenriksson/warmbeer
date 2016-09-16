@@ -24,14 +24,9 @@
             <h4>
                 {{vm.currentLocationName}}
             </h4>
-
-            <!--<input class="u-full-width" type="text" ng-model="vm.currentLocationName">-->
         </div>
         <div class="four columns">
-            <select class="u-full-width">
-                <option value="Option 1">Price</option>
-                <option value="Option 2">Strength</option>
-            </select>
+            <select class="u-full-width" ng-options="s.name for s in vm.settings" ng-model="vm.selectedSetting" ng-change="vm.getData()"></select>
         </div>
     </div>
 
@@ -53,7 +48,6 @@
                 <tr ng-repeat="i in vm.items">
                     <td>{{i.name}}</td>
                     <td>{{i.price | currency : ""}}</td>
-                    <!--<td>{{i.pricePerLitre | currency : ""}}</td>-->
                     <td>{{i.alcoholByVolume}}</td>
                 </tr>
             </table>

@@ -91,9 +91,7 @@
     <Compile Include="Queries\PagedResult.cs" />
     <Compile Include="Queries\PageInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Domain\_Diagram.cd" />
