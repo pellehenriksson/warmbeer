@@ -113,6 +113,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\Map-Marker-Ball-Azure.png" />
+    <Content Include="Content\Images\Map-Marker-Ball-Pink.png" />
     <Content Include="Content\normalize.css" />
     <Content Include="Content\skeleton.css" />
     <Content Include="Global.asax" />
