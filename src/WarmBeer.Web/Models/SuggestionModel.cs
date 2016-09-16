@@ -7,7 +7,7 @@ namespace WarmBeer.Web.Models
         public SuggestionModel()
         {
             this.Radius = 10000;
-            this.HighestAlcohol = false;
+            this.Setting = 1;
         }
 
         [Range(11, 25)]
@@ -19,6 +19,6 @@ namespace WarmBeer.Web.Models
         [Range(100, 500000)]
         public int Radius { get; set; }
 
-        public bool HighestAlcohol { get; set; }
+        public int Setting { get; set; }
     }
 }

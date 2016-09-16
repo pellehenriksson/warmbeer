@@ -1,9 +1,7 @@
-﻿using System.Data.Entity;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
-using WarmBeer.Core.Infrastructure.Persistence;
 using WarmBeer.Web.Infrastucture;
 
 namespace WarmBeer.Web
@@ -14,7 +12,6 @@ namespace WarmBeer.Web
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
             this.ConfigureAutofac();
-            this.InitDb();
         }
 
         private void ConfigureAutofac()
@@ -28,11 +25,6 @@ namespace WarmBeer.Web
 
             var container = builder.Build();
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
-        }
-
-        private void InitDb()
-        {
-            Database.SetInitializer(new CreateDatabaseIfNotExists<WarmBeerDbContext>());
         }
     }
 }

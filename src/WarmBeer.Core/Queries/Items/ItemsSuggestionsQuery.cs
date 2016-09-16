@@ -6,7 +6,6 @@ using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using MediatR;
-using WarmBeer.Core.Domain;
 using WarmBeer.Core.Infrastructure.Persistence;
 
 namespace WarmBeer.Core.Queries.Items
@@ -47,14 +46,18 @@ namespace WarmBeer.Core.Queries.Items
                                 .GroupBy(x => x.Item.Id)
                                 .Select(grp => grp.FirstOrDefault());
 
-            if (message.HighestAlcohol)
+            if (message.Setting == Parameters.ResultSetting.Strongest)
             {
                 itemsQuery = itemsQuery
                     .OrderByDescending(x => x.Item.AlcoholByVolume);
             }
-            else
+            else if (message.Setting == Parameters.ResultSetting.LowestPrice)
             {
                 itemsQuery = itemsQuery.OrderBy(x => x.Item.PricePerLitre);
+            }
+            else
+            {
+                itemsQuery = itemsQuery.OrderByDescending(x => x.Item.PricePerLitre);
             }
 
             var items = await itemsQuery
@@ -84,7 +87,14 @@ namespace WarmBeer.Core.Queries.Items
 
             public int Radius { get; set; }
 
-            public bool HighestAlcohol { get; set; }
+            public ResultSetting Setting { get; set; }
+
+            public enum ResultSetting
+            {
+                LowestPrice = 1,
+                Strongest = 2, 
+                HighestPrice = 3
+            }
         }
 
         public class Result 

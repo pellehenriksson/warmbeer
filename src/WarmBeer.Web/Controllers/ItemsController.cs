@@ -49,7 +49,7 @@ namespace WarmBeer.Web.Controllers
                 Longitude = model.Longitude,
                 Latitude = model.Latitude,
                 Radius = model.Radius,
-                HighestAlcohol = model.HighestAlcohol,
+                Setting = (ItemsSuggestionsQuery.Parameters.ResultSetting) model.Setting,
             };
 
             var result = await this.mediator.SendAsync(parameters);

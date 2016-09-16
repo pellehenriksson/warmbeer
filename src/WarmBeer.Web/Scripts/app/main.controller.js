@@ -34,7 +34,8 @@
 
         vm.settings = [
             { id: 1, name: "Give me the cheapest possible" },
-            { id: 2, name: "Give me the strongest stuff" }
+            { id: 2, name: "Give me the strongest stuff" },
+            { id: 3, name: "Give me the most expensive stuff" }
         ];
 
         vm.selectedSetting = vm.settings[0];
@@ -71,10 +72,8 @@
         }
 
         function getSuggestions() {
-            
-            var alcohol = vm.selectedSetting.id === 2;
-
-            $http.get("/api/items/suggestions?longitude=" + vm.currentLocation.longitude + "&latitude=" + vm.currentLocation.latitude + "&highestAlcohol=" + alcohol)
+ 
+            $http.get("/api/items/suggestions?longitude=" + vm.currentLocation.longitude + "&latitude=" + vm.currentLocation.latitude + "&setting=" + vm.selectedSetting.id)
                 .then(function(response) {
 
                     vm.items = response.data.items;
