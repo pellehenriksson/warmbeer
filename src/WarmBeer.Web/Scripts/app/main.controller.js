@@ -5,9 +5,9 @@
         .module("app")
         .controller("MainController", MainController);
 
-    MainController.$inject = ["$scope", "$http"];
+    MainController.$inject = ["locationService", "suggestionsService"];
 
-    function MainController($scope, $http) {
+    function MainController(locationService, suggestionsService) {
 
         var vm = this;
         vm.currentLocationName = "";
@@ -20,17 +20,6 @@
             lon: 14.83115,
             zoom: 12,
             projection: "EPSG:4326"
-        };
-   
-        var locationStyle = {
-            image: {
-                icon: {
-                    anchor: [0.5, 1],
-                    anchorXUnits: 'fraction',
-                    anchorYUnits: 'fraction',
-                    src: 'content/images/Map-Marker-Ball-Pink.png'
-                }
-            }
         };
 
         vm.settings = [
@@ -50,22 +39,23 @@
 
         function getLocation() {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function (position) {
+                navigator.geolocation.getCurrentPosition(function(position) {
                     vm.currentLocation = position.coords;
-
                     getSuggestions();
                     getLocationName();
                     centerMapOnLocation();
                 });
+            } else {
+                
             }
         }
 
         function getLocationName() {
-            $http.get("/api/location/name?longitude=" + vm.currentLocation.longitude + "&latitude=" + vm.currentLocation.latitude)
-                .then(function (response) {
-                    vm.currentLocationName = response.data.name;
+            locationService.getName(vm.currentLocation.longitude, vm.currentLocation.latitude)
+               .then(function (data) {
+                    vm.currentLocationName = data.name;
                     vm.loadingLocationName = false;
-                });
+               });
         }
 
         function centerMapOnLocation() {
@@ -74,38 +64,11 @@
         }
 
         function getSuggestions() {
- 
-            $http.get("/api/items/suggestions?longitude=" + vm.currentLocation.longitude + "&latitude=" + vm.currentLocation.latitude + "&setting=" + vm.selectedSetting.id)
-                .then(function(response) {
-
-                    vm.items = response.data.items;
-
-                    // render stores
-                    response.data.stores.map(function (store) {
-                        vm.places.push({
-                            lat: store.latitude,
-                            lon: store.longitude,
-                            label: {
-                                message: store.info,
-                                show: true
-                            }
-                        });
-                    });
-
-                    // render current position
-                    vm.places.push({
-                        lat: vm.currentLocation.latitude,
-                        lon: vm.currentLocation.longitude,
-                        label: {
-                            message: "You are here",
-                            show: false
-                        },
-                        style: locationStyle
-                    });
-
-
+            suggestionsService.getItems(vm.currentLocation.longitude, vm.currentLocation.latitude, vm.selectedSetting.id)
+                .then(function(data) {
+                    vm.places = data.places;
+                    vm.items = data.items;
                     vm.loading = false;
-
                 });
         }
     }
