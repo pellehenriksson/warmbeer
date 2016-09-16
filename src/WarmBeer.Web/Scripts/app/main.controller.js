@@ -11,6 +11,7 @@
 
         var vm = this;
         vm.currentLocationName = "";
+        vm.loading = true;
         vm.currentLocation = {};
         vm.items = [];
         vm.places = [];
@@ -63,6 +64,7 @@
             $http.get("/api/location/name?longitude=" + vm.currentLocation.longitude + "&latitude=" + vm.currentLocation.latitude)
                 .then(function (response) {
                     vm.currentLocationName = response.data.name;
+                    vm.loadingLocationName = false;
                 });
         }
 
@@ -100,6 +102,9 @@
                         },
                         style: locationStyle
                     });
+
+
+                    vm.loading = false;
 
                 });
         }
