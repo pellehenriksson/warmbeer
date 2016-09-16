@@ -1,0 +1,7 @@
+{
+  "name": "warm-beer",
+	"private": true,
+  "dependencies": {
+    "angular-openlayers-directive" :  ""
+    }
+}

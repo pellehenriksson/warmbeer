@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Spatial;
 using System.Globalization;
@@ -32,6 +33,8 @@ namespace WarmBeer.Core.Queries.Items
                         Address = x.Address.Street,
                         City = x.Address.City,
                         Location = x.Location.AsText(),
+                        Latitude = x.Location.Latitude,
+                        Longitude = x.Location.Longitude,
                         Distance = x.Location.Distance(location)
                     })
                 .ToListAsync();
@@ -95,8 +98,26 @@ namespace WarmBeer.Core.Queries.Items
 
                 public string Location { get; set; }
 
+                public double?  Latitude { get; set; }
+
+                public double? Longitude { get; set; }
+
                 // meter
                 public double? Distance { get; set; }
+
+                public string Info
+                {
+                    get
+                    {
+                        if (!this.Distance.HasValue)
+                        {
+                            return this.Address;
+                        }
+
+                        var dist = Math.Round(this.Distance.Value/1000, 1);
+                        return $"{this.Address} Distance: {dist} Km";
+                    }
+                }
             }
         }
     }

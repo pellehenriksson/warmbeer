@@ -16,7 +16,6 @@ automapper (projections)
 angular m tests
 open-layers
 
-
 -------------------
 bluegarden
 long: 14.83115
@@ -29,13 +28,9 @@ sthlm central
 
 
 https://github.com/tombatossals/angular-openlayers-directive (bower) ??
-
 https://github.com/johnpapa/angular-styleguide
 
-
-
 http://maps.googleapis.com/maps/api/geocode/json?latlng=56.90410,14.83115&sensor=true
-
 
 load images with a proxy service, store the image and reuse it for next requests
 
