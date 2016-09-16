@@ -81,6 +81,13 @@ namespace WarmBeer.Core.Queries.Items
         
         public class Parameters : IAsyncRequest<Result>
         {
+            public enum ResultSetting
+            {
+                LowestPrice = 1,
+                Strongest = 2,
+                HighestPrice = 3
+            }
+
             public decimal Longitude { get; set; }
 
             public decimal Latitude { get; set; }
@@ -88,13 +95,6 @@ namespace WarmBeer.Core.Queries.Items
             public int Radius { get; set; }
 
             public ResultSetting Setting { get; set; }
-
-            public enum ResultSetting
-            {
-                LowestPrice = 1,
-                Strongest = 2, 
-                HighestPrice = 3
-            }
         }
 
         public class Result 
@@ -113,7 +113,7 @@ namespace WarmBeer.Core.Queries.Items
 
                 public string Location { get; set; }
 
-                public double?  Latitude { get; set; }
+                public double? Latitude { get; set; }
 
                 public double? Longitude { get; set; }
 
@@ -128,7 +128,7 @@ namespace WarmBeer.Core.Queries.Items
                             return this.Address;
                         }
 
-                        var dist = Math.Round(this.Distance.Value/1000, 1);
+                        var dist = Math.Round(this.Distance.Value / 1000, 1);
                         return $"{this.Address} Distance: {dist} Km";
                     }
                 }

@@ -80,7 +80,6 @@
     <Compile Include="Infrastructure\Persistence\Config\StoreItemConfig.cs" />
     <Compile Include="Infrastructure\Persistence\WarmBeerDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Queries\ItemImages\ItemImageQuery.cs" />
     <Compile Include="Queries\Items\ItemQuery.cs" />
     <Compile Include="Queries\Items\ItemsListQuery.cs" />
     <Compile Include="Queries\Items\ItemModel.cs" />

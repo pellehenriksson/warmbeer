@@ -33,8 +33,8 @@ namespace WarmBeer.Core.Queries.Location
         {
             public Parameters(decimal longitude, decimal latitude)
             {
-                Longitude = longitude;
-                Latitude = latitude;
+                this.Longitude = longitude;
+                this.Latitude = latitude;
             }
 
             public decimal Longitude { get; private set; }
