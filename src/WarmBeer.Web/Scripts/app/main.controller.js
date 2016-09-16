@@ -64,7 +64,8 @@
 
         function getSuggestions() {
             suggestionsService.getItems(vm.currentLocation.longitude, vm.currentLocation.latitude, vm.selectedSetting.id)
-                .then(function(data) {
+                .then(function (data) {
+                    vm.loading = true;
                     vm.places = data.places;
                     vm.items = data.items;
                     vm.loading = false;
