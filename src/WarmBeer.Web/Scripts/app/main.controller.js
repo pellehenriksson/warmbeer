@@ -33,8 +33,8 @@
         };
 
         vm.settings = [
-            { id: 1, name: "Give me the best prices" },
-            { id: 2, name: "Give me a really bad hangover" }
+            { id: 1, name: "Give me the cheapest possible" },
+            { id: 2, name: "Give me the strongest stuff" }
         ];
 
         vm.selectedSetting = vm.settings[0];
